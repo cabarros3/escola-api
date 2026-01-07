@@ -24,7 +24,12 @@ export const CursosController = {
   async listar(req: Request, res: Response) {
     try {
       const cursos = await Curso.findAll({
-        attributes: ["curso_nome", "curso_carga_horaria", "curso_modalidade"],
+        attributes: [
+          "curso_id",
+          "curso_nome",
+          "curso_carga_horaria",
+          "curso_modalidade",
+        ],
       });
       return res.json(cursos);
     } catch (error: any) {
